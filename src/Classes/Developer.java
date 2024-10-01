@@ -10,5 +10,16 @@ package Classes;
  * @author Maria Daniela
  */
 public class Developer {
+    private int salary;
+    
+    private int rol; 
+    private int pagoPorHora; 
+    private int duracionDia; 
+    private float salarioTotal=0;
+    private double tiempoproducto; 
+    private String empresa; 
+    private boolean continuar = true; 
+    
+    
     
 }
