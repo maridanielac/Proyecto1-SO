@@ -9,7 +9,7 @@ package Classes;
  *
  * @author Maria Daniela
  */
-public class Developer {
+public class Developer extends Thread {
     private int salary;
     
     private int rol; 
@@ -19,6 +19,13 @@ public class Developer {
     private double tiempoproducto; 
     private String empresa; 
     private boolean continuar = true; 
+    
+    @Override 
+    public void run(){
+        for (int i=0; i<=5; i++){
+            System.out.println("Proceso1");
+        }
+    }
     
     
     

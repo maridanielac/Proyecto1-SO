@@ -4,6 +4,8 @@
  */
 package proyecto1.so;
 
+import Classes.Developer;
+
 /**
  *
  * @author Maria Daniela
@@ -15,6 +17,8 @@ public class Proyecto1SO {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Developer dev = new Developer();
+        dev.start();
     }
     
 }
