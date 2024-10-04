@@ -1,32 +1,45 @@
 package Classes;
 
+import java.util.concurrent.Semaphore;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-
 /**
  *
  * @author Maria Daniela
  */
 public class Developer extends Thread {
+
+    private int rol;
     private int salary;
+    private Semaphore mutex;
+
+    public Developer(int rol, int salary, Semaphore m) {
+        this.rol = rol;
+        this.salary=salary;
+        this.mutex = m;
+    }
     
-    private int rol; 
-    private int pagoPorHora; 
-    private int duracionDia; 
-    private float salarioTotal=0;
-    private double tiempoproducto; 
-    private String empresa; 
-    private boolean continuar = true; 
-    
-    @Override 
+    @Override
     public void run(){
-        for (int i=0; i<=5; i++){
-            System.out.println("Proceso1");
+        while (true){
+            System.out.println("Trabajadores "+ this.rol + "Salario"+ this.salary);
+            try {
+                sleep(5000);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Developer.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
     
     
     
+    
+    
+    
+
 }
