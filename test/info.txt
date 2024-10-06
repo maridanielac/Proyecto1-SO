@@ -1,0 +1,25 @@
+[General info]
+DayDuration=2000
+Deadline=30
+
+[Apple]
+PlacaBase=5
+CPUs=4
+RAM=3
+FuenteAlimentacion=3
+TarjetasGraficas=1
+Ensambladores=1
+ProjectManager=1
+Director=1
+MaxCapacity=17
+
+[HP]
+PlacaBase=3
+CPUs=4
+RAM=3
+FuenteAlimentacion=1
+TarjetasGraficas=1
+Ensambladores=2
+ProjectManager=1
+Director=1
+MaxCapacity=14
