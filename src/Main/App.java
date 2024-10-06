@@ -5,9 +5,9 @@
 package Main;
 
 import java.io.File;
-import Classes.FileFunctions;
-import GUI.Classes.ChartManager;
-import Helpers.HelpersFunctions;
+import Classes.Txt;
+//import GUI.Classes.ChartManager;
+import Classes.Funciones;
 import Classes.Company;
 
 /**
@@ -15,19 +15,19 @@ import Classes.Company;
  * @author soyis
  */
 public class App {
-    // FIle params
-    private static String selectedPath = "test//params.txt";
+    // Txt info
+    private static String selectedPath = "test//info.txt";
     private static File selectedFile = new File(selectedPath);
-    private static FileFunctions fileFunctions = new FileFunctions();
+    private static Txt txt = new Txt();
 
-    // General params
+    // General info
     private static int dayDuration;
     private static int deadline;
 
     // General variables
-    private TelevisionNetwork cartoonNetwork;
-    private TelevisionNetwork nickelodeon;
-    private static ChartManager chartManager;
+    private Company apple;
+    private Company hp;
+//    private static ChartManager chartManager;
 
 
     private static App app;
@@ -46,16 +46,16 @@ public class App {
 
     public void start() {
         
-        HelpersFunctions.loadParams();
+        Funciones.loadParams();
         
         // Inicia la simulacion
-        getNickelodeon().start();
-        getCartoonNetwork().start();
-        chartManager = new ChartManager();
+        getApple().start();
+        getHP().start();
+//        chartManager = new ChartManager();
 
 
-        Home home = new Home();
-        home.setVisible(true);
+//        Home home = new Home();
+//        home.setVisible(true);
     }
 
     /**
@@ -87,17 +87,17 @@ public class App {
     }
 
     /**
-     * @return the fileFunctions
+     * @return txt
      */
-    public static FileFunctions getFileFunctions() {
-        return fileFunctions;
+    public static Txt getFileFunctions() {
+        return txt;
     }
 
     /**
      * @param aFileFunctions the fileFunctions to set
      */
-    public static void setFileFunctions(FileFunctions aFileFunctions) {
-        fileFunctions = aFileFunctions;
+    public static void setFileFunctions(Txt aFileFunctions) {
+        txt = aFileFunctions;
     }
 
     /**
@@ -129,31 +129,31 @@ public class App {
     }
 
     /**
-     * @return the cartoonNetwork
+     * @return hp
      */
-    public TelevisionNetwork getCartoonNetwork() {
-        return cartoonNetwork;
+    public Company getHP() {
+        return hp;
     }
 
     /**
-     * @param cartoonNetwork the cartoonNetwork to set
+     * @param hp
      */
-    public void setCartoonNetwork(TelevisionNetwork cartoonNetwork) {
-        this.cartoonNetwork = cartoonNetwork;
+    public void setHP(Company hp) {
+        this.hp = hp;
     }
 
     /**
-     * @return the nickelodeon
+     * @return apple
      */
-    public TelevisionNetwork getNickelodeon() {
-        return nickelodeon;
+    public Company getApple() {
+        return apple;
     }
 
     /**
-     * @param nickelodeon the nickelodeon to set
+     * @param apple
      */
-    public void setNickelodeon(TelevisionNetwork nickelodeon) {
-        this.nickelodeon = nickelodeon;
+    public void setApple(Company apple) {
+        this.apple = apple;
     }
 
     /**
@@ -170,8 +170,8 @@ public class App {
         app = aApp;
     }
 
-     public static ChartManager getChartManager() {
-        return chartManager;
-    }
+//     public static ChartManager getChartManager() {
+//        return chartManager;
+//    }
   
 }
