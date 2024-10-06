@@ -17,7 +17,6 @@ public class Developer extends Thread {
     private int rol;
     private int salary;
     private Semaphore mutex;
-    private String name;
     private int dayDuration;
     private int payPerHour;
     private Drive drive;
@@ -27,9 +26,8 @@ public class Developer extends Thread {
     private int content;
     private int CantDeveloper;
 
-    public Developer(int rol, String name, int dayDuration, int payPerHour, Semaphore mutex, Drive drive) {
+    public Developer(int rol, int dayDuration, int payPerHour, Semaphore mutex, Drive drive) {
         this.rol = rol;
-        this.name = name;
         this.dayDuration = dayDuration;
         this.payPerHour = payPerHour;
         this.mutex = mutex;
@@ -63,7 +61,7 @@ public class Developer extends Thread {
                 getMutex().release();
                 
             }catch(InterruptedException ex){
-                System.out.println(Err);
+                System.out.println(ex);
             }
         } 
         salaryWorker();
