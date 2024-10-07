@@ -21,7 +21,7 @@ public class Ventana extends javax.swing.JFrame {
         initComponents();
     }
     
-    boolean iniciado=false;
+    boolean iniciado=false; // (cambiar a verdadero para visualizar) Aqui tengo que poner verdadero para que se elija la cantidad de trabajadores por tipo y si se excede muestre el mensaje 
     int max_apple= 14;
     
     /**
@@ -323,6 +323,9 @@ public class Ventana extends javax.swing.JFrame {
                 this.repaint();
             }
             
+        }else {
+            this.CantPlacasBases.setValue(1);
+            this.repaint();
         }
     }//GEN-LAST:event_CantPlacasBasesStateChanged
 
@@ -339,6 +342,9 @@ public class Ventana extends javax.swing.JFrame {
                 this.repaint();
             }
             
+        }else {
+            this.CantCPUS.setValue(1);
+            this.repaint();
         }
     }//GEN-LAST:event_CantCPUSStateChanged
 
@@ -356,11 +362,15 @@ public class Ventana extends javax.swing.JFrame {
                 this.repaint();
             }
             
+        }else {
+            this.CantMemoriaRam.setValue(1);
+            this.repaint();
         }
     }//GEN-LAST:event_CantMemoriaRamStateChanged
 
     private void CantFuenteAStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CantFuenteAStateChanged
         // TODO add your handling code here:
+        
         if (iniciado == true){
             if ((int)this.CantFuenteA.getValue() <= 0){
                 this.CantFuenteA.setValue(1);
@@ -372,6 +382,9 @@ public class Ventana extends javax.swing.JFrame {
                 this.repaint();
             }
             
+        }else {
+            this.CantFuenteA.setValue(1);
+            this.repaint();
         }
         
     }//GEN-LAST:event_CantFuenteAStateChanged
@@ -389,6 +402,9 @@ public class Ventana extends javax.swing.JFrame {
                 this.repaint();
             }
             
+        }else {
+            this.CantTarjetaGrafica.setValue(1);
+            this.repaint();
         }
     }//GEN-LAST:event_CantTarjetaGraficaStateChanged
 
