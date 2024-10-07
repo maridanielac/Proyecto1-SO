@@ -5,6 +5,7 @@
 package Interfaz;
 
 import java.awt.Color;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -19,7 +20,10 @@ public class Ventana extends javax.swing.JFrame {
     public Ventana() {
         initComponents();
     }
-
+    
+    boolean iniciado=false;
+    int max_apple= 14;
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,6 +44,20 @@ public class Ventana extends javax.swing.JFrame {
         btn_ambos = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        int_apple = new javax.swing.JInternalFrame();
+        jLabel8 = new javax.swing.JLabel();
+        int_hp = new javax.swing.JInternalFrame();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        CantTarjetaGrafica = new javax.swing.JSpinner();
+        jLabel10 = new javax.swing.JLabel();
+        CantPlacasBases = new javax.swing.JSpinner();
+        jLabel11 = new javax.swing.JLabel();
+        CantCPUS = new javax.swing.JSpinner();
+        CantMemoriaRam = new javax.swing.JSpinner();
+        jLabel12 = new javax.swing.JLabel();
+        CantFuenteA = new javax.swing.JSpinner();
+        jLabel13 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -73,7 +91,7 @@ public class Ventana extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
         btn_appleLayout.setVerticalGroup(
             btn_appleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,7 +102,7 @@ public class Ventana extends javax.swing.JFrame {
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
-        sidepane.add(btn_apple, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 150, 50));
+        sidepane.add(btn_apple, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 170, 50));
 
         btn_hp.setBackground(new java.awt.Color(64, 43, 100));
         btn_hp.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -109,7 +127,7 @@ public class Ventana extends javax.swing.JFrame {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
         btn_hpLayout.setVerticalGroup(
             btn_hpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,7 +138,7 @@ public class Ventana extends javax.swing.JFrame {
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
-        sidepane.add(btn_hp, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, -1, -1));
+        sidepane.add(btn_hp, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 170, -1));
 
         btn_ambos.setBackground(new java.awt.Color(64, 43, 100));
         btn_ambos.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -158,32 +176,91 @@ public class Ventana extends javax.swing.JFrame {
 
         sidepane.add(btn_ambos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, -1, -1));
 
-        bg.add(sidepane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 490));
+        bg.add(sidepane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 550));
+
+        int_apple.setVisible(true);
+        int_apple.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel8.setText("APPLE");
+        int_apple.getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 37, -1));
+
+        int_hp.setVisible(true);
+        int_hp.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel7.setText("hola");
+        int_hp.getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 37, -1));
+
+        int_apple.getContentPane().add(int_hp, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 470, 660, 540));
+
+        jLabel9.setText("CPUS");
+        int_apple.getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 60, 40));
+
+        CantTarjetaGrafica.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                CantTarjetaGraficaStateChanged(evt);
+            }
+        });
+        int_apple.getContentPane().add(CantTarjetaGrafica, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 40, 20));
+
+        jLabel10.setText("Tarjetas Graficas");
+        int_apple.getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 140, 20));
+
+        CantPlacasBases.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                CantPlacasBasesStateChanged(evt);
+            }
+        });
+        int_apple.getContentPane().add(CantPlacasBases, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 40, 20));
+
+        jLabel11.setText("Productores Placas Bases");
+        int_apple.getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 140, 20));
+
+        CantCPUS.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                CantCPUSStateChanged(evt);
+            }
+        });
+        int_apple.getContentPane().add(CantCPUS, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 40, 20));
+
+        CantMemoriaRam.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                CantMemoriaRamStateChanged(evt);
+            }
+        });
+        int_apple.getContentPane().add(CantMemoriaRam, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 40, 20));
+
+        jLabel12.setText("Memoria RAM");
+        int_apple.getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 140, 20));
+
+        CantFuenteA.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                CantFuenteAStateChanged(evt);
+            }
+        });
+        int_apple.getContentPane().add(CantFuenteA, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 40, 20));
+
+        jLabel13.setText("Fuente de Alimentación");
+        int_apple.getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 140, 20));
+
+        bg.add(int_apple, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 660, 550));
 
         jPanel1.setBackground(new java.awt.Color(122, 72, 222));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 610, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        bg.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 610, -1));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        bg.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 670, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, 832, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -202,14 +279,28 @@ public class Ventana extends javax.swing.JFrame {
         setColor(btn_apple);
         resetColor(btn_hp);
         resetColor(btn_ambos);
+        int_apple.setVisible(true); // Asegúrate de que sea visible
+        int_hp.setVisible(false);
+        try {
+            int_apple.setSelected(true); // Seleccionarlo si es necesario
+        } catch (java.beans.PropertyVetoException e) {
+            e.printStackTrace();
+        }
         
     }//GEN-LAST:event_btn_appleMouseClicked
 
     private void btn_hpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_hpMouseClicked
         // TODO add your handling code here:
-         setColor(btn_hp);
+        setColor(btn_hp);
         resetColor(btn_apple);
         resetColor(btn_ambos);
+        int_apple.setVisible(false);
+        int_hp.setVisible(true);
+        try {
+            int_hp.setSelected(true);
+        } catch (java.beans.PropertyVetoException e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_btn_hpMouseClicked
 
     private void btn_ambosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ambosMouseClicked
@@ -218,6 +309,88 @@ public class Ventana extends javax.swing.JFrame {
         resetColor(btn_apple);
         resetColor(btn_hp);
     }//GEN-LAST:event_btn_ambosMouseClicked
+
+    private void CantPlacasBasesStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CantPlacasBasesStateChanged
+        // TODO add your handling code here:
+        if (iniciado == true){
+            if ((int)this.CantPlacasBases.getValue() <= 0){
+                this.CantPlacasBases.setValue(1);
+                this.repaint();
+            }
+            else if((int)this.CantPlacasBases.getValue()+ (int)this.CantCPUS.getValue()+ (int)this.CantMemoriaRam.getValue()+ (int)this.CantFuenteA.getValue()+(int)this.CantTarjetaGrafica.getValue() > max_apple ){
+                JOptionPane.showMessageDialog(null, "Numero Maximo de Trabajadores Alcanzado");
+                this.CantPlacasBases.setValue((int)this.CantPlacasBases.getValue() -1);
+                this.repaint();
+            }
+            
+        }
+    }//GEN-LAST:event_CantPlacasBasesStateChanged
+
+    private void CantCPUSStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CantCPUSStateChanged
+        // TODO add your handling code here:
+        if (iniciado == true){
+            if ((int)this.CantCPUS.getValue() <= 0){
+                this.CantCPUS.setValue(1);
+                this.repaint();
+            }
+            else if((int)this.CantPlacasBases.getValue()+ (int)this.CantCPUS.getValue()+ (int)this.CantMemoriaRam.getValue()+ (int)this.CantFuenteA.getValue()+(int)this.CantTarjetaGrafica.getValue() > max_apple ){
+                JOptionPane.showMessageDialog(null, "Numero Maximo de Trabajadores Alcanzado");
+                this.CantCPUS.setValue((int)this.CantCPUS.getValue() -1);
+                this.repaint();
+            }
+            
+        }
+    }//GEN-LAST:event_CantCPUSStateChanged
+
+    private void CantMemoriaRamStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CantMemoriaRamStateChanged
+        // TODO add your handling code here:
+        
+        if (iniciado == true){
+            if ((int)this.CantMemoriaRam.getValue() <= 0){
+                this.CantMemoriaRam.setValue(1);
+                this.repaint();
+            }
+            else if((int)this.CantPlacasBases.getValue()+ (int)this.CantCPUS.getValue()+ (int)this.CantMemoriaRam.getValue()+ (int)this.CantFuenteA.getValue()+(int)this.CantTarjetaGrafica.getValue() > max_apple ){
+                JOptionPane.showMessageDialog(null, "Numero Maximo de Trabajadores Alcanzado");
+                this.CantMemoriaRam.setValue((int)this.CantMemoriaRam.getValue() -1);
+                this.repaint();
+            }
+            
+        }
+    }//GEN-LAST:event_CantMemoriaRamStateChanged
+
+    private void CantFuenteAStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CantFuenteAStateChanged
+        // TODO add your handling code here:
+        if (iniciado == true){
+            if ((int)this.CantFuenteA.getValue() <= 0){
+                this.CantFuenteA.setValue(1);
+                this.repaint();
+            }
+            else if((int)this.CantPlacasBases.getValue()+ (int)this.CantCPUS.getValue()+ (int)this.CantMemoriaRam.getValue()+ (int)this.CantFuenteA.getValue()+(int)this.CantTarjetaGrafica.getValue() > max_apple ){
+                JOptionPane.showMessageDialog(null, "Numero Maximo de Trabajadores Alcanzado");
+                this.CantFuenteA.setValue((int)this.CantFuenteA.getValue() -1);
+                this.repaint();
+            }
+            
+        }
+        
+    }//GEN-LAST:event_CantFuenteAStateChanged
+
+    private void CantTarjetaGraficaStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CantTarjetaGraficaStateChanged
+        // TODO add your handling code here:
+        if (iniciado == true){
+            if ((int)this.CantTarjetaGrafica.getValue() <= 0){
+                this.CantTarjetaGrafica.setValue(1);
+                this.repaint();
+            }
+            else if((int)this.CantPlacasBases.getValue()+ (int)this.CantCPUS.getValue()+ (int)this.CantMemoriaRam.getValue()+ (int)this.CantFuenteA.getValue()+(int)this.CantTarjetaGrafica.getValue() > max_apple ){
+                JOptionPane.showMessageDialog(null, "Numero Maximo de Trabajadores Alcanzado");
+                this.CantTarjetaGrafica.setValue((int)this.CantTarjetaGrafica.getValue() -1);
+                this.repaint();
+            }
+            
+        }
+    }//GEN-LAST:event_CantTarjetaGraficaStateChanged
 
     
     
@@ -257,16 +430,30 @@ public class Ventana extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JSpinner CantCPUS;
+    private javax.swing.JSpinner CantFuenteA;
+    private javax.swing.JSpinner CantMemoriaRam;
+    private javax.swing.JSpinner CantPlacasBases;
+    private javax.swing.JSpinner CantTarjetaGrafica;
     private javax.swing.JPanel bg;
     private javax.swing.JPanel btn_ambos;
     private javax.swing.JPanel btn_apple;
     private javax.swing.JPanel btn_hp;
+    private javax.swing.JInternalFrame int_apple;
+    private javax.swing.JInternalFrame int_hp;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel sidepane;
     // End of variables declaration//GEN-END:variables

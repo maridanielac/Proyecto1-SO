@@ -5,6 +5,7 @@
 package proyecto1.so;
 
 import Classes.Developer;
+import Interfaz.Ventana;
 import java.util.concurrent.Semaphore;
 
 /**
@@ -17,6 +18,9 @@ public class Proyecto1SO {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+        Ventana vent = new Ventana();
+        vent.setVisible(true);
         // TODO code application logic 
         
         //Semaphore mainMutex = new Semaphore(1);
