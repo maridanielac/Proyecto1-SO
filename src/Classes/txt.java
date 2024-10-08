@@ -7,9 +7,7 @@ package Classes;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-
 import Main.App;
-import Classes.Company;
 
 /**
  *
@@ -153,16 +151,16 @@ public class Txt {
         data += "DayDuration=" + dayDuration + "\n" + "Deadline=" + deadline + "\n\n";
 
         data += "[Apple]\n";
-        Company nickelodeon = app.getNickelodeon();
-        int screenwriters = nickelodeon.countNonNull(nickelodeon.getScreenwriters());
-        int setDesigners = nickelodeon.countNonNull(nickelodeon.getSetDesigners());
-        int characterAnimators = nickelodeon.countNonNull(nickelodeon.getCharacterAnimators());
-        int voiceActors = nickelodeon.countNonNull(nickelodeon.getVoiceActors());
-        int plotTwistScriptwriters = nickelodeon.countNonNull(nickelodeon.getPlotTwistScreenwriters());
-        int assemblers = nickelodeon.countNonNull(nickelodeon.getAssemblers());
-        int projectManager = nickelodeon.getProjectManager();
-        int director = nickelodeon.getDirector();
-        int maxCapacity = nickelodeon.getMaxEmployeesQuantity();
+        Company apple = app.getApple();
+        int screenwriters = apple.countNonNull(apple.getScreenwriters());
+        int setDesigners = apple.countNonNull(apple.getSetDesigners());
+        int characterAnimators = apple.countNonNull(apple.getCharacterAnimators());
+        int voiceActors = apple.countNonNull(apple.getVoiceActors());
+        int plotTwistScriptwriters = apple.countNonNull(apple.getPlotTwistScreenwriters());
+        int assemblers = apple.countNonNull(apple.getAssemblers());
+        int projectManager = apple.getProjectManager();
+        int director = apple.getDirector();
+        int maxCapacity = apple.getMaxEmployeesQuantity();
 
         data += "Screenwriters=" + screenwriters + "\n" + "SetDesigners=" + setDesigners + "\n" + "CharacterAnimators="
                 + characterAnimators + "\n" + "VoiceActors=" + voiceActors + "\n" + "PlotTwistScriptwriters="
@@ -170,16 +168,16 @@ public class Txt {
                 + "\n" + "Director=" + director + "\n" + "MaxCapacity=" + maxCapacity + "\n\n";
 
         data += "[HP]\n";
-        Company cartoonNetwork = app.getCartoonNetwork();
-        screenwriters = cartoonNetwork.countNonNull(cartoonNetwork.getScreenwriters());
-        setDesigners = cartoonNetwork.countNonNull(cartoonNetwork.getSetDesigners());
-        characterAnimators = cartoonNetwork.countNonNull(cartoonNetwork.getCharacterAnimators());
-        voiceActors = cartoonNetwork.countNonNull(cartoonNetwork.getVoiceActors());
-        plotTwistScriptwriters = cartoonNetwork.countNonNull(cartoonNetwork.getPlotTwistScreenwriters());
-        assemblers = cartoonNetwork.countNonNull(cartoonNetwork.getAssemblers());
-        projectManager = cartoonNetwork.getProjectManager();
-        director = cartoonNetwork.getDirector();
-        maxCapacity = cartoonNetwork.getMaxEmployeesQuantity();
+        Company hp = app.getHP();
+        screenwriters = hp.countNonNull(hp.getScreenwriters());
+        setDesigners = hp.countNonNull(hp.getSetDesigners());
+        characterAnimators = hp.countNonNull(hp.getCharacterAnimators());
+        voiceActors = hp.countNonNull(hp.getVoiceActors());
+        plotTwistScriptwriters = hp.countNonNull(hp.getPlotTwistScreenwriters());
+        assemblers = hp.countNonNull(hp.getAssemblers());
+        projectManager = hp.getProjectManager();
+        director = hp.getDirector();
+        maxCapacity = hp.getMaxEmployeesQuantity();
 
         data += "Screenwriters=" + screenwriters + "\n" + "SetDesigners=" + setDesigners + "\n" + "CharacterAnimators="
                 + characterAnimators + "\n" + "VoiceActors=" + voiceActors + "\n" + "PlotTwistScriptwriters="
