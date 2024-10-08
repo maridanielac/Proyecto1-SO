@@ -19,8 +19,8 @@ import Main.App;
  * @author soyis
  */
 public class Funciones {
-    public static Company getTelevisionNetwork(int company) {
-        return company == 0 ? App.getInstance().getNickelodeon() : App.getInstance().getCartoonNetwork();
+    public static Company getCompany(int company) {
+        return company == 0 ? App.getInstance().getApple() : App.getInstance().getHP();
     }
 
     public static void loadParams() {
@@ -35,8 +35,8 @@ public class Funciones {
         }
 
         App app = App.getInstance();
-        app.setNickelodeon(HelpersFunctions.createTelevisionNetwork(0));
-        app.setCartoonNetwork(HelpersFunctions.createTelevisionNetwork(1));
+        app.setApple(Funciones.createCompany(0));
+        app.setHP(Funciones.createCompany(1));
 
     }
 
@@ -90,8 +90,8 @@ public class Funciones {
 
     public void addWorker(int company, int workerType) {
 
-        TelevisionNetwork network = company == 0 ? App.getInstance().getNickelodeon()
-                : App.getInstance().getCartoonNetwork();
+        Company network = company == 0 ? App.getInstance().getApple()
+                : App.getInstance().getHP();
 
         // Se verifica si la cantidad actual de empleados es menor que la cantidad
         // máxima permitida
@@ -125,7 +125,7 @@ public class Funciones {
     }
 
     public void deleteWorker(int company, int workerType) {
-        Company network = Funciones.getTelevisionNetwork(company);
+        Company network = Funciones.getCompany(company);
 
         // Verifica si hay empleados para eliminar
         if (network.getActualEmployeesQuantity() > 0) {
@@ -192,19 +192,19 @@ public class Funciones {
     }
 
     public static void calculateTotalCost(int company, float accumulatedSalary) {
-        Company tv = getTelevisionNetwork(company);
+        Company tv = getCompany(company);
         tv.setTotalCost(tv.getTotalCost() + accumulatedSalary);
     }
 
     public static void calculateTotalEarnings(int company) {
-        Company tv = getTelevisionNetwork(company);
+        Company tv = getCompany(company);
         float earning = (tv.getNumNormalChapters() * Global.profitComputers[company][0])
                 + (tv.getNumChaptersWithPlotTwist() * Global.profitComputers[company][1]);
         tv.setEarning(earning);
     }
 
     public static void calculateProfit(int company) {
-        Company tv = getTelevisionNetwork(company);
+        Company tv = getCompany(company);
         float profit = tv.getEarning() - tv.getTotalCost();
         tv.setProfit(profit);
     }
