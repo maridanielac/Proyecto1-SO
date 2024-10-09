@@ -16,12 +16,12 @@ public class Company {
     private String name;
     private int maxEmployeesQuantity;
     private int actualEmployeesQuantity = 0;
-    private Developer[] screenwriters;
-    private Developer[] setDesigners;
-    private Developer[] characterAnimators;
-    private Developer[] voiceActors;
-    private Developer[] plotTwistScreenwriters;
-    private Developer[] Assemblers;
+    private Developer[] placaBase;
+    private Developer[] cpus;
+    private Developer[] ram;
+    private Developer[] fuenteAlimentacion;
+    private Developer[] tarjetasGraficas;
+    private Developer[] ensambladores;
     private int projectManager;
     private ProjectManager projectManagerInstance;
     private int director;
@@ -35,28 +35,28 @@ public class Company {
     private float batchLastProfit = 0;
     private int totalDays = 0;
     private int remainingDays = App.getInstance().getDeadline();
-    private int numChapters = 0;
-    private int numNormalChapters = 0;
-    private int numChaptersWithPlotTwist = 0;
-    private int actualNumChapters = 0;
-    private int actualNumNormalChapters = 0;
-    private int actualNumChaptersWithPlotTwist = 0;
-    private int lastNumNormalChapters = 0;
-    private int lastNumChaptersWithPlotTwist = 0;
-    private int plotTwistTrigger = 0;
+    private int numComputadoras = 0;
+    private int numComputadorasNorm = 0;
+    private int numComputadorasGraf = 0;
+    private int actualNumComputadoras = 0;
+    private int actualNumComputadorasNorm = 0;
+    private int actualNumComputadorasGraf = 0;
+    private int lastNumComputadorasNorm = 0;
+    private int lastNumComputadorasGraf = 0;
+    private int tarjetasGraf = 0;
 
     // CONSTRUCTOR
-    public Company(String name, int maxEmployeesQuantity, Developer[] screenwriters, Developer[] setDesigners,
-            Developer[] characterAnimators, Developer[] voiceActors, Developer[] plotTwistScreenwriters,
-            Developer[] Assemblers, int projectManager, int director, Drive drive, Semaphore mutex) {
+    public Company(String name, int maxEmployeesQuantity, Developer[] placaBase, Developer[] cpus,
+            Developer[] ram, Developer[] fuenteAlimentacion, Developer[] tarjetasGraficas,
+            Developer[] ensambladores, int projectManager, int director, Drive drive, Semaphore mutex) {
         this.name = name;
         this.maxEmployeesQuantity = maxEmployeesQuantity;
-        this.screenwriters = screenwriters;
-        this.setDesigners = setDesigners;
-        this.characterAnimators = characterAnimators;
-        this.voiceActors = voiceActors;
-        this.plotTwistScreenwriters = plotTwistScreenwriters;
-        this.Assemblers = Assemblers;
+        this.placaBase = placaBase;
+        this.cpus = cpus;
+        this.ram = ram;
+        this.fuenteAlimentacion = fuenteAlimentacion;
+        this.tarjetasGraficas = tarjetasGraficas;
+        this.ensambladores = ensambladores;
         this.projectManager = projectManager;
         this.director = director;
         this.drive = drive;
@@ -66,34 +66,34 @@ public class Company {
 
     public void start() {
 
-        for (int i = 0; i < this.getScreenwriters().length; i++) {
-            if (this.getScreenwriters()[i] != null) {
-                this.getScreenwriters()[i].start();
+        for (int i = 0; i < this.getPlacaBase().length; i++) {
+            if (this.getPlacaBase()[i] != null) {
+                this.getPlacaBase()[i].start();
             }
         }
-        for (int i = 0; i < this.getSetDesigners().length; i++) {
-            if (this.getSetDesigners()[i] != null) {
-                this.getSetDesigners()[i].start();
+        for (int i = 0; i < this.getCPUs().length; i++) {
+            if (this.getCPUs()[i] != null) {
+                this.getCPUs()[i].start();
             }
         }
-        for (int i = 0; i < this.getCharacterAnimators().length; i++) {
-            if (this.getCharacterAnimators()[i] != null) {
-                this.getCharacterAnimators()[i].start();
+        for (int i = 0; i < this.getRam().length; i++) {
+            if (this.getRam()[i] != null) {
+                this.getRam()[i].start();
             }
         }
-        for (int i = 0; i < this.getVoiceActors().length; i++) {
-            if (this.getVoiceActors()[i] != null) {
-                this.getVoiceActors()[i].start();
+        for (int i = 0; i < this.getFuenteAlimentacion().length; i++) {
+            if (this.getFuenteAlimentacion()[i] != null) {
+                this.getFuenteAlimentacion()[i].start();
             }
         }
-        for (int i = 0; i < this.getPlotTwistScreenwriters().length; i++) {
-            if (this.getPlotTwistScreenwriters()[i] != null) {
-                this.getPlotTwistScreenwriters()[i].start();
+        for (int i = 0; i < this.getTarjetasGraficas().length; i++) {
+            if (this.getTarjetasGraficas()[i] != null) {
+                this.getTarjetasGraficas()[i].start();
             }
         }
-        for (int i = 0; i < this.getAssemblers().length; i++) {
-            if (this.getAssemblers()[i] != null) {
-                this.getAssemblers()[i].start();
+        for (int i = 0; i < this.getEnsambladores().length; i++) {
+            if (this.getEnsambladores()[i] != null) {
+                this.getEnsambladores()[i].start();
             }
         }
         this.getProjectManagerInstance().start();
@@ -105,21 +105,21 @@ public class Company {
         int totalEmployees = 0;
 
         // Contar empleados no nulos en cada arreglo
-        totalEmployees += countNonNull(screenwriters);
-        totalEmployees += countNonNull(setDesigners);
-        totalEmployees += countNonNull(characterAnimators);
-        totalEmployees += countNonNull(voiceActors);
-        totalEmployees += countNonNull(plotTwistScreenwriters);
-        totalEmployees += countNonNull(Assemblers);
+        totalEmployees += countNonNull(placaBase);
+        totalEmployees += countNonNull(cpus);
+        totalEmployees += countNonNull(ram);
+        totalEmployees += countNonNull(fuenteAlimentacion);
+        totalEmployees += countNonNull(tarjetasGraficas);
+        totalEmployees += countNonNull(ensambladores);
 
         this.setActualEmployeesQuantity(totalEmployees);
     }
 
     // Método auxiliar para contar los elementos no nulos en un arreglo de Employee
-    public int countNonNull(Employee[] employees) {
+    public int countNonNull(Developer[] developers) {
         int count = 0;
-        for (Employee employee : employees) {
-            if (employee != null) {
+        for (Developer developer : developers) {
+            if (developer != null) {
                 count++;
             }
         }
@@ -155,87 +155,85 @@ public class Company {
     }
 
     /**
-     * @return the screenwriters
+     * @return productores placa base
      */
-    public Employee[] getScreenwriters() {
-        return screenwriters;
+    public Developer[] getPlacaBase() {
+        return placaBase;
     }
 
     /**
-     * @param screenwriters the screenwriters to set
+     * 
+     * @param placaBase
      */
-    public void setScreenwriters(Employee[] screenwriters) {
-        this.screenwriters = screenwriters;
+    public void setPlacaBase(Developer[] placaBase) {
+        this.placaBase = placaBase;
     }
 
     /**
-     * @return the setDesigners
+     * @return CPUs
      */
-    public Employee[] getSetDesigners() {
-        return setDesigners;
+    public Developer[] getCPUs() {
+        return cpus;
     }
 
     /**
-     * @param setDesigners the setDesigners to set
+     * @param cpus
      */
-    public void setSetDesigners(Employee[] setDesigners) {
-        this.setDesigners = setDesigners;
+    public void setCpus(Developer[] cpus) {
+        this.cpus = cpus;
     }
 
     /**
-     * @return the characterAnimators
+     * @return ram
      */
-    public Employee[] getCharacterAnimators() {
-        return characterAnimators;
+    public Developer[] getRam() {
+        return ram;
+    }
+    
+    public void setRam(Developer[] ram) {
+        this.ram = ram;
+    }
+    
+    /**
+     * @return productores de fuente de alimentacion
+     */
+    public Developer[] getFuenteAlimentacion() {
+        return fuenteAlimentacion;
     }
 
     /**
-     * @param characterAnimators the characterAnimators to set
+     * @param fuenteAlimentacion
      */
-    public void setCharacterAnimators(Employee[] characterAnimators) {
-        this.characterAnimators = characterAnimators;
+    public void setFuenteAlimentacion(Developer[] fuenteAlimentacion) {
+        this.fuenteAlimentacion = fuenteAlimentacion;
     }
 
     /**
      * @return the voiceActors
      */
-    public Employee[] getVoiceActors() {
-        return voiceActors;
+    public Developer[] getTarjetasGraficas() {
+        return tarjetasGraficas;
     }
 
     /**
-     * @param voiceActors the voiceActors to set
+     * @param tarjetasGraficas
      */
-    public void setVoiceActors(Employee[] voiceActors) {
-        this.voiceActors = voiceActors;
+    public void setTarjetasGraficas(Developer[] tarjetasGraficas) {
+        this.tarjetasGraficas = tarjetasGraficas;
     }
 
     /**
-     * @return the plotTwistScreenwriters
+     * @return los ensambladores
      */
-    public Employee[] getPlotTwistScreenwriters() {
-        return plotTwistScreenwriters;
+    public Developer[] getEnsambladores() {
+        return ensambladores;
     }
 
     /**
-     * @param plotTwistScreenwriters the plotTwistScreenwriters to set
+     * @param ensambladores
      */
-    public void setPlotTwistScreenwriters(Employee[] plotTwistScreenwriters) {
-        this.plotTwistScreenwriters = plotTwistScreenwriters;
-    }
-
-    /**
-     * @return the Assemblers
-     */
-    public Employee[] getAssemblers() {
-        return Assemblers;
-    }
-
-    /**
-     * @param Assemblers the Assemblers to set
-     */
-    public void setAssemblers(Employee[] Assemblers) {
-        this.Assemblers = Assemblers;
+    public void setAssemblers(Developer[] ensambladores) {
+        this.ensambladores = ensambladores;
     }
 
     /**
@@ -406,45 +404,45 @@ public class Company {
     }
 
     /**
-     * @return the numChapters
+     * @return 
      */
-    public int getNumChapters() {
-        return numChapters;
+    public int getNumComputadoras() {
+        return numComputadoras;
     }
 
     /**
-     * @param numChapters the numChapters to set
+     * @param numComputadoras
      */
-    public void setNumChapters(int numChapters) {
-        this.numChapters = numChapters;
+    public void setNumComputadoras(int numComputadoras) {
+        this.numComputadoras = numComputadoras;
     }
 
     /**
-     * @return the numChaptersWithPlotTwist
+     * @return 
      */
-    public int getNumChaptersWithPlotTwist() {
-        return numChaptersWithPlotTwist;
+    public int getNumComputadorasGraf() {
+        return numComputadorasGraf;
     }
 
     /**
-     * @param numChaptersWithPlotTwist the numChaptersWithPlotTwist to set
+     * @param numComputadorasGraf
      */
-    public void setNumChaptersWithPlotTwist(int numChaptersWithPlotTwist) {
-        this.numChaptersWithPlotTwist = numChaptersWithPlotTwist;
+    public void setNumComputadorasGraf(int numComputadorasGraf) {
+        this.numComputadorasGraf = numComputadorasGraf;
     }
 
     /**
-     * @return the numNormalChapters
+     * @return 
      */
-    public int getNumNormalChapters() {
-        return numNormalChapters;
+    public int getNumComputadorasNorm() {
+        return numComputadorasNorm;
     }
 
     /**
-     * @param numNormalChapters the numNormalChapters to set
+     * @param numComputadorasNorm
      */
-    public void setNumNormalChapters(int numNormalChapters) {
-        this.numNormalChapters = numNormalChapters;
+    public void setNumComputadorasNorm(int numComputadorasNorm) {
+        this.numComputadorasNorm = numComputadorasNorm;
     }
 
     /**
@@ -462,75 +460,73 @@ public class Company {
     }
 
     /**
-     * @return the actualNumChapters
+     * @return 
      */
-    public int getActualNumChapters() {
-        return actualNumChapters;
+    public int getActualNumComputadoras() {
+        return actualNumComputadoras;
     }
 
     /**
-     * @param actualNumChapters the actualNumChapters to set
+     * @param actualNumComputadoras
      */
-    public void setActualNumChapters(int actualNumChapters) {
-        this.actualNumChapters = actualNumChapters;
+    public void setActualNumComputadoras(int actualNumComputadoras) {
+        this.actualNumComputadoras = actualNumComputadoras;
     }
 
     /**
-     * @return the actualNumNormalChapters
+     * @return 
      */
-    public int getActualNumNormalChapters() {
-        return actualNumNormalChapters;
+    public int getActualNumComputadorasNorm() {
+        return actualNumComputadorasNorm;
     }
 
     /**
-     * @param actualNumNormalChapters the actualNumNormalChapters to set
+     * @param actualNumComputadorasNorm
      */
-    public void setActualNumNormalChapters(int actualNumNormalChapters) {
-        this.actualNumNormalChapters = actualNumNormalChapters;
+    public void setActualNumComputadorasNorm(int actualNumComputadorasNorm) {
+        this.actualNumComputadorasNorm = actualNumComputadorasNorm;
     }
 
     /**
-     * @return the actualNumChaptersWithPlotTwist
+     * @return 
      */
-    public int getActualNumChaptersWithPlotTwist() {
-        return actualNumChaptersWithPlotTwist;
+    public int getActualNumComputadorasGraf() {
+        return actualNumComputadorasGraf;
     }
 
     /**
-     * @param actualNumChaptersWithPlotTwist the actualNumChaptersWithPlotTwist
-     * to set
+     * @param actualNumComputadorasGraf
      */
-    public void setActualNumChaptersWithPlotTwist(int actualNumChaptersWithPlotTwist) {
-        this.actualNumChaptersWithPlotTwist = actualNumChaptersWithPlotTwist;
+    public void setActualNumComputadorasGraf(int actualNumComputadorasGraf) {
+        this.actualNumComputadorasGraf = actualNumComputadorasGraf;
     }
 
     /**
-     * @return the lastNumNormalChapters
+     * @return 
      */
-    public int getLastNumNormalChapters() {
-        return lastNumNormalChapters;
+    public int getLastNumComputadorasNorm() {
+        return lastNumComputadorasNorm;
     }
 
     /**
-     * @param lastNumNormalChapters the lastNumNormalChapters to set
+     * @param lastNumComputadorasNorm
      */
-    public void setLastNumNormalChapters(int lastNumNormalChapters) {
-        this.lastNumNormalChapters = lastNumNormalChapters;
+    public void setLastNumComputadorasNorm(int lastNumComputadorasNorm) {
+        this.lastNumComputadorasNorm = lastNumComputadorasNorm;
     }
 
     /**
-     * @return the lastNumChaptersWithPlotTwist
+     * @return 
      */
-    public int getLastNumChaptersWithPlotTwist() {
-        return lastNumChaptersWithPlotTwist;
+    public int getLastNumComputadorasGraf() {
+        return lastNumComputadorasGraf;
     }
 
     /**
-     * @param lastNumChaptersWithPlotTwist the lastNumChaptersWithPlotTwist to
-     * set
+     * @param lastNumComputadorasGraf
      */
-    public void setLastNumChaptersWithPlotTwist(int lastNumChaptersWithPlotTwist) {
-        this.lastNumChaptersWithPlotTwist = lastNumChaptersWithPlotTwist;
+    public void setLastNumComputadorasGraf(int lastNumComputadorasGraf) {
+        this.lastNumComputadorasGraf = lastNumComputadorasGraf;
     }
 
     /**
@@ -562,18 +558,90 @@ public class Company {
     }
 
     /**
-     * @return the plotTwistTrigger
+     * @return 
      */
-    public int getPlotTwistTrigger() {
-        return plotTwistTrigger;
+    public int getTarjetasGraf() {
+        return tarjetasGraf;
     }
 
     /**
-     * @param plotTwistTrigger the plotTwistTrigger to set
+     * @param tarjetasGraf
      */
-    public void setPlotTwistTrigger(int plotTwistTrigger) {
-        this.plotTwistTrigger = plotTwistTrigger;
+    public void setTarjetasGraf(int tarjetasGraf) {
+        this.tarjetasGraf = tarjetasGraf;
     }
 
     
 }
+
+/**
+ *
+ * @author Maria Daniela
+ */
+//public class Company {
+//    private int numeroPlacasBases; 
+//    private int numerosCpus; 
+//    private int numeroMemoriaRam; 
+//    private int numeroFuenteAlimentacion; 
+//    private int numeroTarjetasGraficas; 
+//    
+//    private float Gastos; 
+//    private float Ingresos; 
+//    private float Beneficios; 
+//    
+//    private float computers; 
+//    private float computerstarjetasgraficas; 
+//    
+//    private int PlacasBasesSalary; 
+//    private int CpusSalary; 
+//    private int MemoriaRamSalary; 
+//    private int FuenteAliSalary;
+//    private int TarjetasGraficasSalary; 
+//    private int assemblerSalary;
+//    
+//    private int dayDuration; 
+//    
+//    private int PlacasBasesContent; 
+//    private int CpusContent; 
+//    private int MemoriaRamContent; 
+//    private int FuenteAliContent; 
+//    private int TarjetaGraficaContent; 
+//    
+//    private int placasbasesToWork; 
+//    private int cpusToWork; 
+//    private int memoriaramToWork;
+//    private int fuentealiToWork; 
+//    private int tarjetagraficaToWork; 
+//    private int assemblerToWork; 
+//    
+//    private int placasbasesEnsamblar; 
+//    private int cpusEnsamblar; 
+//    private int memoriaramEnsamblar;
+//    private int fuentealiEnsamblar; 
+//    private int tarjetagraficaEnsamblar; 
+//    private int assemblerEnsamblar; 
+//    
+//    private int compusMemoria; 
+//    private Semaphore mutex; 
+//    private int fixComitDay; 
+//    private int comitDay; 
+//    private Drive drive; 
+//    
+//    private int PMsalary; 
+//    private int directorSalary; 
+//    
+//    private Developer ProductosBases; 
+//    private Developer Cpus; 
+//    private Developer MemoriaRam;
+//    private Developer FuenteAli; 
+//    private Developer TarjetaGrafica; 
+//    private Assembler Assembler; 
+//    
+//    private int trabajadoresTotalesMax; 
+//    private int trabajadoresTotales; 
+//    private int guardarTrabajadoresTotales;
+//    
+//    
+//    
+//    
+//}
