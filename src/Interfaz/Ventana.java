@@ -21,7 +21,7 @@ public class Ventana extends javax.swing.JFrame {
         initComponents();
     }
     
-    boolean iniciado=false; // (cambiar a verdadero para visualizar) Aqui tengo que poner verdadero para que se elija la cantidad de trabajadores por tipo y si se excede muestre el mensaje 
+    boolean iniciado=true; // (cambiar a verdadero para visualizar) Aqui tengo que poner verdadero para que se elija la cantidad de trabajadores por tipo y si se excede muestre el mensaje 
     int max_apple= 14;
     
     /**
