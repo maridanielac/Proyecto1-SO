@@ -152,36 +152,36 @@ public class Txt {
 
         data += "[Apple]\n";
         Company apple = app.getApple();
-        int screenwriters = apple.countNonNull(apple.getScreenwriters());
-        int setDesigners = apple.countNonNull(apple.getSetDesigners());
-        int characterAnimators = apple.countNonNull(apple.getCharacterAnimators());
-        int voiceActors = apple.countNonNull(apple.getVoiceActors());
-        int plotTwistScriptwriters = apple.countNonNull(apple.getPlotTwistScreenwriters());
-        int assemblers = apple.countNonNull(apple.getAssemblers());
+        int placaBase = apple.countNonNull(apple.getPlacaBase());
+        int cpus = apple.countNonNull(apple.getCPUs());
+        int ram = apple.countNonNull(apple.getRam());
+        int fuenteAlimentacion = apple.countNonNull(apple.getFuenteAlimentacion());
+        int tarjetasGraficas = apple.countNonNull(apple.getTarjetasGraficas());
+        int ensambladores = apple.countNonNull(apple.getEnsambladores());
         int projectManager = apple.getProjectManager();
         int director = apple.getDirector();
         int maxCapacity = apple.getMaxEmployeesQuantity();
 
-        data += "Screenwriters=" + screenwriters + "\n" + "SetDesigners=" + setDesigners + "\n" + "CharacterAnimators="
-                + characterAnimators + "\n" + "VoiceActors=" + voiceActors + "\n" + "PlotTwistScriptwriters="
-                + plotTwistScriptwriters + "\n" + "Assemblers=" + assemblers + "\n" + "ProjectManager=" + projectManager
+        data += "PlacaBase=" + placaBase + "\n" + "CPUs=" + cpus + "\n" + "RAM="
+                + ram + "\n" + "FuenteAlimentacion=" + fuenteAlimentacion + "\n" + "TarjetasGraficas="
+                + tarjetasGraficas + "\n" + "Ensambladores=" + ensambladores + "\n" + "ProjectManager=" + projectManager
                 + "\n" + "Director=" + director + "\n" + "MaxCapacity=" + maxCapacity + "\n\n";
 
         data += "[HP]\n";
         Company hp = app.getHP();
-        screenwriters = hp.countNonNull(hp.getScreenwriters());
-        setDesigners = hp.countNonNull(hp.getSetDesigners());
-        characterAnimators = hp.countNonNull(hp.getCharacterAnimators());
-        voiceActors = hp.countNonNull(hp.getVoiceActors());
-        plotTwistScriptwriters = hp.countNonNull(hp.getPlotTwistScreenwriters());
-        assemblers = hp.countNonNull(hp.getAssemblers());
+        placaBase = hp.countNonNull(hp.getPlacaBase());
+        cpus = hp.countNonNull(hp.getCPUs());
+        ram = hp.countNonNull(hp.getRam());
+        fuenteAlimentacion = hp.countNonNull(hp.getFuenteAlimentacion());
+        tarjetasGraficas = hp.countNonNull(hp.getTarjetasGraficas());
+        ensambladores = hp.countNonNull(hp.getEnsambladores());
         projectManager = hp.getProjectManager();
         director = hp.getDirector();
         maxCapacity = hp.getMaxEmployeesQuantity();
 
-        data += "Screenwriters=" + screenwriters + "\n" + "SetDesigners=" + setDesigners + "\n" + "CharacterAnimators="
-                + characterAnimators + "\n" + "VoiceActors=" + voiceActors + "\n" + "PlotTwistScriptwriters="
-                + plotTwistScriptwriters + "\n" + "Assemblers=" + assemblers + "\n" + "ProjectManager=" + projectManager
+        data += "PlacaBase=" + placaBase + "\n" + "CPUs=" + cpus + "\n" + "RAM="
+                + ram + "\n" + "FuenteAlimentacion=" + fuenteAlimentacion + "\n" + "TarjetasGraficas="
+                + tarjetasGraficas + "\n" + "Ensambladores=" + ensambladores + "\n" + "ProjectManager=" + projectManager
                 + "\n" + "Director=" + director + "\n" + "MaxCapacity=" + maxCapacity + "\n\n";
 
         return data;
