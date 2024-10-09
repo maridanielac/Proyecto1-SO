@@ -51,6 +51,17 @@ public class Ventana extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         content = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        CantMemoriaRam = new javax.swing.JSpinner();
+        jLabel9 = new javax.swing.JLabel();
+        CantPlacasBases = new javax.swing.JSpinner();
+        jLabel11 = new javax.swing.JLabel();
+        CantCPUS = new javax.swing.JSpinner();
+        jLabel12 = new javax.swing.JLabel();
+        CantFuenteA = new javax.swing.JSpinner();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        CantTarjetaGrafica = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -174,15 +185,114 @@ public class Ventana extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         bg.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 670, -1));
 
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel14.setText("HP");
+
+        CantMemoriaRam.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                CantMemoriaRamStateChanged(evt);
+            }
+        });
+
+        jLabel9.setText("CPUS");
+
+        CantPlacasBases.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                CantPlacasBasesStateChanged(evt);
+            }
+        });
+
+        jLabel11.setText("Productores Placas Bases");
+
+        CantCPUS.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                CantCPUSStateChanged(evt);
+            }
+        });
+
+        jLabel12.setText("Memoria RAM");
+
+        CantFuenteA.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                CantFuenteAStateChanged(evt);
+            }
+        });
+
+        jLabel13.setText("Fuente de Alimentación");
+
+        jLabel10.setText("Tarjetas Graficas");
+
+        CantTarjetaGrafica.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                CantTarjetaGraficaStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
         content.setLayout(contentLayout);
         contentLayout.setHorizontalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 660, Short.MAX_VALUE)
+            .addGroup(contentLayout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(contentLayout.createSequentialGroup()
+                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(CantPlacasBases, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(contentLayout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(contentLayout.createSequentialGroup()
+                                .addGap(40, 40, 40)
+                                .addComponent(CantCPUS, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(contentLayout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(contentLayout.createSequentialGroup()
+                                .addGap(90, 90, 90)
+                                .addComponent(CantMemoriaRam, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(contentLayout.createSequentialGroup()
+                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(CantFuenteA, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(contentLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(contentLayout.createSequentialGroup()
+                                .addGap(100, 100, 100)
+                                .addComponent(CantTarjetaGrafica, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(414, Short.MAX_VALUE))
         );
         contentLayout.setVerticalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 550, Short.MAX_VALUE)
+            .addGroup(contentLayout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(jLabel14)
+                .addGap(12, 12, 12)
+                .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CantPlacasBases, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(contentLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(CantCPUS, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CantMemoriaRam, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CantFuenteA, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CantTarjetaGrafica, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(308, Short.MAX_VALUE))
         );
 
         bg.add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 660, 550));
@@ -257,6 +367,103 @@ public class Ventana extends javax.swing.JFrame {
         content.repaint();
     }//GEN-LAST:event_btn_ambosMouseClicked
 
+    private void CantMemoriaRamStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CantMemoriaRamStateChanged
+        // TODO add your handling code here:
+
+        if (iniciado == true){
+            if ((int)this.CantMemoriaRam.getValue() <= 0){
+                this.CantMemoriaRam.setValue(1);
+                this.repaint();
+            }
+            else if((int)this.CantPlacasBases.getValue()+ (int)this.CantCPUS.getValue()+ (int)this.CantMemoriaRam.getValue()+ (int)this.CantFuenteA.getValue()+(int)this.CantTarjetaGrafica.getValue() > max_apple ){
+                JOptionPane.showMessageDialog(null, "Numero Maximo de Trabajadores Alcanzado");
+                this.CantMemoriaRam.setValue((int)this.CantMemoriaRam.getValue() -1);
+                this.repaint();
+            }
+
+        }else {
+            this.CantMemoriaRam.setValue(1);
+            this.repaint();
+        }
+    }//GEN-LAST:event_CantMemoriaRamStateChanged
+
+    private void CantPlacasBasesStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CantPlacasBasesStateChanged
+        // TODO add your handling code here:
+        if (iniciado == true){
+            if ((int)this.CantPlacasBases.getValue() <= 0){
+                this.CantPlacasBases.setValue(1);
+                this.repaint();
+            }
+            else if((int)this.CantPlacasBases.getValue()+ (int)this.CantCPUS.getValue()+ (int)this.CantMemoriaRam.getValue()+ (int)this.CantFuenteA.getValue()+(int)this.CantTarjetaGrafica.getValue() > max_apple ){
+                JOptionPane.showMessageDialog(null, "Numero Maximo de Trabajadores Alcanzado");
+                this.CantPlacasBases.setValue((int)this.CantPlacasBases.getValue() -1);
+                this.repaint();
+            }
+
+        }else {
+            this.CantPlacasBases.setValue(1);
+            this.repaint();
+        }
+    }//GEN-LAST:event_CantPlacasBasesStateChanged
+
+    private void CantCPUSStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CantCPUSStateChanged
+        // TODO add your handling code here:
+        if (iniciado == true){
+            if ((int)this.CantCPUS.getValue() <= 0){
+                this.CantCPUS.setValue(1);
+                this.repaint();
+            }
+            else if((int)this.CantPlacasBases.getValue()+ (int)this.CantCPUS.getValue()+ (int)this.CantMemoriaRam.getValue()+ (int)this.CantFuenteA.getValue()+(int)this.CantTarjetaGrafica.getValue() > max_apple ){
+                JOptionPane.showMessageDialog(null, "Numero Maximo de Trabajadores Alcanzado");
+                this.CantCPUS.setValue((int)this.CantCPUS.getValue() -1);
+                this.repaint();
+            }
+
+        }else {
+            this.CantCPUS.setValue(1);
+            this.repaint();
+        }
+    }//GEN-LAST:event_CantCPUSStateChanged
+
+    private void CantFuenteAStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CantFuenteAStateChanged
+        // TODO add your handling code here:
+
+        if (iniciado == true){
+            if ((int)this.CantFuenteA.getValue() <= 0){
+                this.CantFuenteA.setValue(1);
+                this.repaint();
+            }
+            else if((int)this.CantPlacasBases.getValue()+ (int)this.CantCPUS.getValue()+ (int)this.CantMemoriaRam.getValue()+ (int)this.CantFuenteA.getValue()+(int)this.CantTarjetaGrafica.getValue() > max_apple ){
+                JOptionPane.showMessageDialog(null, "Numero Maximo de Trabajadores Alcanzado");
+                this.CantFuenteA.setValue((int)this.CantFuenteA.getValue() -1);
+                this.repaint();
+            }
+
+        }else {
+            this.CantFuenteA.setValue(1);
+            this.repaint();
+        }
+    }//GEN-LAST:event_CantFuenteAStateChanged
+
+    private void CantTarjetaGraficaStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CantTarjetaGraficaStateChanged
+        // TODO add your handling code here:
+        if (iniciado == true){
+            if ((int)this.CantTarjetaGrafica.getValue() <= 0){
+                this.CantTarjetaGrafica.setValue(1);
+                this.repaint();
+            }
+            else if((int)this.CantPlacasBases.getValue()+ (int)this.CantCPUS.getValue()+ (int)this.CantMemoriaRam.getValue()+ (int)this.CantFuenteA.getValue()+(int)this.CantTarjetaGrafica.getValue() > max_apple ){
+                JOptionPane.showMessageDialog(null, "Numero Maximo de Trabajadores Alcanzado");
+                this.CantTarjetaGrafica.setValue((int)this.CantTarjetaGrafica.getValue() -1);
+                this.repaint();
+            }
+
+        }else {
+            this.CantTarjetaGrafica.setValue(1);
+            this.repaint();
+        }
+    }//GEN-LAST:event_CantTarjetaGraficaStateChanged
+
     
     
     /**
@@ -295,17 +502,28 @@ public class Ventana extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JSpinner CantCPUS;
+    private javax.swing.JSpinner CantFuenteA;
+    private javax.swing.JSpinner CantMemoriaRam;
+    private javax.swing.JSpinner CantPlacasBases;
+    private javax.swing.JSpinner CantTarjetaGrafica;
     private javax.swing.JPanel bg;
     private javax.swing.JPanel btn_ambos;
     private javax.swing.JPanel btn_apple;
     private javax.swing.JPanel btn_hp;
     private javax.swing.JPanel content;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel sidepane;
     // End of variables declaration//GEN-END:variables
