@@ -10,12 +10,13 @@ import java.util.concurrent.Semaphore;
  *
  * @author Maria Daniela
  */
-public class Company {
+public final class Company {
     private int numeroPlacasBases; 
     private int numerosCpus; 
     private int numeroMemoriaRam; 
     private int numeroFuenteAlimentacion; 
     private int numeroTarjetasGraficas; 
+    private int numeroAssemblers; 
     
     private float Gastos; 
     private float Ingresos; 
@@ -62,12 +63,12 @@ public class Company {
     private int PMsalary; 
     private int directorSalary; 
     
-    private Developer ProductosBases; 
-    private Developer Cpus; 
-    private Developer MemoriaRam;
-    private Developer FuenteAli; 
-    private Developer TarjetaGrafica; 
-    private Assembler Assembler; 
+    private final Developer ProductosBases; 
+    private final Developer Cpus; 
+    private final Developer MemoriaRam;
+    private final Developer FuenteAli; 
+    private final Developer TarjetaGrafica; 
+    private final Assembler Assembler; 
     
     private int trabajadoresTotalesMax; 
     private int trabajadoresTotales; 
@@ -112,15 +113,15 @@ public class Company {
         this.mutex = new Semaphore(1);
         this.fixComitDay = fixComitDay;
         this.comitDay = comitDay;
-        this.drive = new Drive(25,25,25,25,25,40,40);
+        this.drive = new Drive(25,20,55,35,10);
         this.PMsalary = PMsalary;
         this.directorSalary = directorSalary;
-        this.ProductosBases = ProductosBases;
-        this.Cpus = Cpus;
-        this.MemoriaRam = MemoriaRam;
-        this.FuenteAli = FuenteAli;
-        this.TarjetaGrafica = TarjetaGrafica;
-        this.Assembler = Assembler;
+        this.ProductosBases = new Developer(getNumeroPlacasBases(), 0, getPlacasBasesSalary(), getDayDuration(), getMutex(), getPlacasbasesToWork() , getPlacasBasesContent(), this);
+        this.Cpus = new Developer(getNumerosCpus(), 1, getCpusSalary(), getDayDuration(), getMutex(), getCpusToWork() , getCpusContent(), this);
+        this.MemoriaRam = new Developer(getNumeroMemoriaRam(), 2, getMemoriaRamSalary(), getDayDuration(), getMutex(), getMemoriaramToWork() , getMemoriaRamContent(), this);
+        this.FuenteAli = new Developer( getNumeroFuenteAlimentacion(), 3, getFuenteAliSalary(), getDayDuration(), getMutex(), getFuentealiToWork() ,getFuenteAliContent(), this);
+        this.TarjetaGrafica = new Developer( getNumeroTarjetasGraficas(), 4, getTarjetasGraficasSalary(), getDayDuration(), getMutex(), getTarjetagraficaToWork(), getTarjetaGraficaContent(), this);
+        this.Assembler = new Assembler(getNumeroAssemblers(), getAssemblerSalary(), getDayDuration(), getMutex(), getAssemblerToWork(), this, getPlacasbasesEnsamblar(), getCpusEnsamblar(), getMemoriaramEnsamblar(), getFuentealiEnsamblar(), getTarjetagraficaEnsamblar(), getCompusMemoria());
         this.trabajadoresTotalesMax = trabajadoresTotalesMax;
         this.trabajadoresTotales = trabajadoresTotales;
         this.guardarTrabajadoresTotales = guardarTrabajadoresTotales;
@@ -134,7 +135,7 @@ public class Company {
         this.trabajadoresTotales = ProductosBases.getCantDeveloper() + Cpus.getCantDeveloper() + MemoriaRam.getCantDeveloper()+FuenteAli.getCantDeveloper() + TarjetaGrafica.getCantDeveloper()+Assembler.getAssemblerquantity();    
     }
 
-    public int getNumeroPlacasBases() {
+    public final int getNumeroPlacasBases() {
         return numeroPlacasBases;
     }
 
@@ -142,7 +143,7 @@ public class Company {
         this.numeroPlacasBases = numeroPlacasBases;
     }
 
-    public int getNumerosCpus() {
+    public final int getNumerosCpus() {
         return numerosCpus;
     }
 
@@ -150,7 +151,7 @@ public class Company {
         this.numerosCpus = numerosCpus;
     }
 
-    public int getNumeroMemoriaRam() {
+    public final int getNumeroMemoriaRam() {
         return numeroMemoriaRam;
     }
 
@@ -158,7 +159,7 @@ public class Company {
         this.numeroMemoriaRam = numeroMemoriaRam;
     }
 
-    public int getNumeroFuenteAlimentacion() {
+    public final int getNumeroFuenteAlimentacion() {
         return numeroFuenteAlimentacion;
     }
 
@@ -214,7 +215,7 @@ public class Company {
         this.computerstarjetasgraficas = computerstarjetasgraficas;
     }
 
-    public int getPlacasBasesSalary() {
+    public final int getPlacasBasesSalary() {
         return PlacasBasesSalary;
     }
 
@@ -222,7 +223,7 @@ public class Company {
         this.PlacasBasesSalary = PlacasBasesSalary;
     }
 
-    public int getCpusSalary() {
+    public final int getCpusSalary() {
         return CpusSalary;
     }
 
@@ -230,7 +231,7 @@ public class Company {
         this.CpusSalary = CpusSalary;
     }
 
-    public int getMemoriaRamSalary() {
+    public final int getMemoriaRamSalary() {
         return MemoriaRamSalary;
     }
 
@@ -238,7 +239,7 @@ public class Company {
         this.MemoriaRamSalary = MemoriaRamSalary;
     }
 
-    public int getFuenteAliSalary() {
+    public final int getFuenteAliSalary() {
         return FuenteAliSalary;
     }
 
@@ -262,7 +263,7 @@ public class Company {
         this.assemblerSalary = assemblerSalary;
     }
 
-    public int getDayDuration() {
+    public final int getDayDuration() {
         return dayDuration;
     }
 
@@ -270,7 +271,7 @@ public class Company {
         this.dayDuration = dayDuration;
     }
 
-    public int getPlacasBasesContent() {
+    public final int getPlacasBasesContent() {
         return PlacasBasesContent;
     }
 
@@ -278,7 +279,7 @@ public class Company {
         this.PlacasBasesContent = PlacasBasesContent;
     }
 
-    public int getCpusContent() {
+    public final int getCpusContent() {
         return CpusContent;
     }
 
@@ -286,7 +287,7 @@ public class Company {
         this.CpusContent = CpusContent;
     }
 
-    public int getMemoriaRamContent() {
+    public final int getMemoriaRamContent() {
         return MemoriaRamContent;
     }
 
@@ -310,7 +311,7 @@ public class Company {
         this.TarjetaGraficaContent = TarjetaGraficaContent;
     }
 
-    public int getPlacasbasesToWork() {
+    public final int getPlacasbasesToWork() {
         return placasbasesToWork;
     }
 
@@ -318,7 +319,7 @@ public class Company {
         this.placasbasesToWork = placasbasesToWork;
     }
 
-    public int getCpusToWork() {
+    public final int getCpusToWork() {
         return cpusToWork;
     }
 
@@ -326,7 +327,7 @@ public class Company {
         this.cpusToWork = cpusToWork;
     }
 
-    public int getMemoriaramToWork() {
+    public final int getMemoriaramToWork() {
         return memoriaramToWork;
     }
 
@@ -414,7 +415,7 @@ public class Company {
         this.compusMemoria = compusMemoria;
     }
 
-    public Semaphore getMutex() {
+    public final Semaphore getMutex() {
         return mutex;
     }
 
@@ -466,48 +467,31 @@ public class Company {
         return ProductosBases;
     }
 
-    public void setProductosBases(Developer ProductosBases) {
-        this.ProductosBases = ProductosBases;
-    }
 
     public Developer getCpus() {
         return Cpus;
     }
 
-    public void setCpus(Developer Cpus) {
-        this.Cpus = Cpus;
-    }
 
     public Developer getMemoriaRam() {
         return MemoriaRam;
     }
 
-    public void setMemoriaRam(Developer MemoriaRam) {
-        this.MemoriaRam = MemoriaRam;
-    }
-
+  
     public Developer getFuenteAli() {
         return FuenteAli;
     }
 
-    public void setFuenteAli(Developer FuenteAli) {
-        this.FuenteAli = FuenteAli;
-    }
+   
 
     public Developer getTarjetaGrafica() {
         return TarjetaGrafica;
     }
 
-    public void setTarjetaGrafica(Developer TarjetaGrafica) {
-        this.TarjetaGrafica = TarjetaGrafica;
-    }
+   
 
     public Assembler getAssembler() {
         return Assembler;
-    }
-
-    public void setAssembler(Assembler Assembler) {
-        this.Assembler = Assembler;
     }
 
     public int getTrabajadoresTotalesMax() {
@@ -534,6 +518,15 @@ public class Company {
         this.guardarTrabajadoresTotales = guardarTrabajadoresTotales;
     }
 
+    public int getNumeroAssemblers() {
+        return numeroAssemblers;
+    }
+
+    public void setNumeroAssemblers(int numeroAssemblers) {
+        this.numeroAssemblers = numeroAssemblers;
+    }
+
+    
     
     
     

@@ -41,6 +41,11 @@ public class Apple extends javax.swing.JPanel {
         jLabel13 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         CantTarjetaGrafica = new javax.swing.JSpinner();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         jPanel1.setMinimumSize(new java.awt.Dimension(660, 550));
         jPanel1.setPreferredSize(new java.awt.Dimension(660, 550));
@@ -99,6 +104,21 @@ public class Apple extends javax.swing.JPanel {
             }
         });
         jPanel1.add(CantTarjetaGrafica, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 40, 20));
+
+        jLabel1.setText("Drive:");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, -1, -1));
+
+        jLabel2.setText("Drive:");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, -1, -1));
+
+        jLabel3.setText("Drive:");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, -1, -1));
+
+        jLabel4.setText("Drive:");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, -1, -1));
+
+        jLabel5.setText("Drive:");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -217,11 +237,16 @@ public class Apple extends javax.swing.JPanel {
     private javax.swing.JSpinner CantMemoriaRam;
     private javax.swing.JSpinner CantPlacasBases;
     private javax.swing.JSpinner CantTarjetaGrafica;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

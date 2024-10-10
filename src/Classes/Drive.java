@@ -25,6 +25,7 @@ public class Drive {
     
     private int computadoras; 
     private int computadorasytgraficas; 
+    
 
     public Drive(int maxplacasbases, int maxcpus, int maxmemoriaram, int maxfuentealim, int maxtarjgraficas) {
         this.placasbases = 0;
@@ -37,12 +38,10 @@ public class Drive {
         this.maxmemoriaram = maxmemoriaram;
         this.maxfuentealim = maxfuentealim;
         this.maxtarjgraficas = maxtarjgraficas;
-        this.computadoras = computadoras;
-        this.computadorasytgraficas = computadorasytgraficas;
+        this.computadoras = 0;
+        this.computadorasytgraficas = 0;
     }
     
-    public void Limites(){
-    }
     
     public void AggDrive (int rol, int content ){
         switch (rol){
@@ -77,6 +76,25 @@ public class Drive {
         }
     }
 
+    public void addCompu (int newCompu, boolean isPlot){
+    if(isPlot){
+        this.setComputadorasytgraficas(getComputadorasytgraficas() + newCompu);
+    }else{
+        this.setComputadoras(getComputadoras() + newCompu);
+    }
+    //actParts();
+    }
+    
+   // public void actParts() {
+    //this.labelsDrive[0].setText(String.valueOf(getGuiones())+"/ "+String.valueOf(getMaxguiones()));
+    //this.labelsDrive[1].setText(String.valueOf(getAnimaciones())+"/ "+String.valueOf(getMaxanimaciones()));
+    //this.labelsDrive[2].setText(String.valueOf(getEscenarios())+"/ "+String.valueOf(getMaxescenarios()));
+    //this.labelsDrive[3].setText(String.valueOf(getDoblajes())+"/ "+String.valueOf(getMaxdoblajes()));
+    //this.labelsDrive[4].setText(String.valueOf(getPlotwist())+"/ "+String.valueOf(getMaxplotwist()));
+    //this.labelsDrive[5].setText(String.valueOf(getFinishedChapter()));
+   // this.labelsDrive[6].setText(String.valueOf(getFinishedPlotChapter()));
+   // }
+    
     public int getPlacasbases() {
         return placasbases;
     }
