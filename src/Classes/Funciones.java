@@ -5,13 +5,6 @@
 package Classes;
 
 import java.util.concurrent.Semaphore;
-import Classes.Developer;
-import Classes.ProjectManager;
-import Classes.Txt;
-import Classes.Global;
-import Classes.Director;
-import Classes.Drive;
-import Classes.Company;
 import Main.App;
 
 /**
@@ -59,30 +52,30 @@ public class Funciones {
 
             // Se crean los empleados de cada sección
             for (int type = 0; type <= 5; type++) {
-                Developer[] employees = new Developer[maxEmployees];
+                Developer[] developers = new Developer[maxEmployees];
 
                 for (int j = 0; j < companyValues[type]; j++) {
                     int workerId = j + 1;
                     int numOfWorkDone = Global.productionTimes[company][type][0];
                     int daysToFinish = Global.productionTimes[company][type][1];
                     int hourlyWage = Global.hourlyWages[type];
-                    developers[j] = new Employee(company, workerId, type, daysToFinish, numOfWorkDone, hourlyWage,
+                    developers[j] = new Developer(company, workerId, type, daysToFinish, numOfWorkDone, hourlyWage,
                             drive, mutex);
                 }
-                workers[type] = employees;
+                workers[type] = developers;
             }
-            Company network = new Company(name, maxEmployees, workers[0], workers[1], workers[2],
+            Company empresa = new Company(name, maxEmployees, workers[0], workers[1], workers[2],
                     workers[3], workers[4],
                     workers[5], projectManager, director, drive, mutex);
 
             // Se crea al projectManager y al director, se les pasa la cadena televisiva.
             ProjectManager projectManagerInstance = new ProjectManager(company, 1, 5, 1, 1,
                     Global.hourlyWages[5], drive, mutex);
-            network.setProjectManagerInstance(projectManagerInstance);
+            empresa.setProjectManagerInstance(projectManagerInstance);
             Director directorInstance = new Director(company, 1, 6, 2, 1, Global.hourlyWages[6], drive,
                     mutex);
-            network.setDirectorInstance(directorInstance);
-            return network;
+            empresa.setDirectorInstance(directorInstance);
+            return empresa;
 
         }
         return null;
@@ -90,31 +83,31 @@ public class Funciones {
 
     public void addWorker(int company, int workerType) {
 
-        Company network = company == 0 ? App.getInstance().getApple()
+        Company empresa = company == 0 ? App.getInstance().getApple()
                 : App.getInstance().getHP();
 
         // Se verifica si la cantidad actual de empleados es menor que la cantidad
         // máxima permitida
-        if (network.getActualEmployeesQuantity() < network.getMaxEmployeesQuantity()) {
-            Employee[] employees = getEmployeesArrayByType(network, workerType);
+        if (empresa.getActualEmployeesQuantity() < empresa.getMaxEmployeesQuantity()) {
+            Developer[] developers = getDevelopersArrayByType(empresa, workerType);
 
             // Se crea nuevo empleado
-            int workerId = network.getActualEmployeesQuantity() + 1;
+            int workerId = empresa.getActualEmployeesQuantity() + 1;
             int daysToFinish = Global.productionTimes[company][workerType][1];
             int numOfWorkDone = Global.productionTimes[company][workerType][0];
             int hourlyWage = Global.hourlyWages[workerType];
-            Employee newEmployee = new Employee(company, workerId, workerType, daysToFinish, numOfWorkDone, hourlyWage,
-                    network.getDrive(), network.getMutex());
+            Developer newDeveloper = new Developer(company, workerId, workerType, daysToFinish, numOfWorkDone, hourlyWage,
+                    empresa.getDrive(), empresa.getMutex());
 
             // Se inicia el hilo del nuevo empleado
-            newEmployee.start();
+            newDeveloper.start();
 
             // Se buscar la primera posición vacía en el arreglo y añadir allí el nuevo
             // empleado
-            for (int i = 0; i < employees.length; i++) {
-                if (employees[i] == null) {
-                    employees[i] = newEmployee;
-                    network.setActualEmployeesQuantity(network.getActualEmployeesQuantity() + 1);
+            for (int i = 0; i < developers.length; i++) {
+                if (developers[i] == null) {
+                    developers[i] = newDeveloper;
+                    empresa.setActualEmployeesQuantity(empresa.getActualEmployeesQuantity() + 1);
                     // Actualizar la cantidad de empleados
                     break;
                 }
@@ -125,68 +118,68 @@ public class Funciones {
     }
 
     public void deleteWorker(int company, int workerType) {
-        Company network = Funciones.getCompany(company);
+        Company empresa = Funciones.getCompany(company);
 
         // Verifica si hay empleados para eliminar
-        if (network.getActualEmployeesQuantity() > 0) {
-            Employee[] employees = getEmployeesArrayByType(network, workerType);
+        if (empresa.getActualEmployeesQuantity() > 0) {
+            Developer[] developers = getDevelopersArrayByType(empresa, workerType);
 
-            if (employees != null) {
+            if (developers != null) {
                 // Buscar el último empleado no nulo
-                for (int i = employees.length - 1; i >= 0; i--) {
-                    if (employees[i] != null) {
+                for (int i = developers.length - 1; i >= 0; i--) {
+                    if (developers[i] != null) {
                         // Interrumpe el hilo del empleado
-                        employees[i].interrupt();
+                        developers[i].interrupt();
 
                         // Elimina el empleado del arreglo
-                        employees[i] = null;
+                        developers[i] = null;
 
                         // Actualiza la cantidad de empleados
-                        network.setActualEmployeesQuantity(network.getActualEmployeesQuantity() - 1);
+                        empresa.setActualEmployeesQuantity(empresa.getActualEmployeesQuantity() - 1);
                         break;
                     }
                 }
             }
         } else {
-            System.out.println("No hay empleados para eliminar.");
+            System.out.println("No hay trabajadores disponibles para eliminar");
         }
     }
 
-    private Employee[] getEmployeesArrayByType(Company network, int workerType) {
+    private Developer[] getDevelopersArrayByType(Company network, int workerType) {
         switch (workerType) {
             case 0:
-                return network.getScreenwriters();
+                return network.getPlacaBase();
             case 1:
-                return network.getSetDesigners();
+                return network.getCPUs();
             case 2:
-                return network.getCharacterAnimators();
+                return network.getRam();
             case 3:
-                return network.getVoiceActors();
+                return network.getFuenteAlimentacion();
             case 4:
-                return network.getPlotTwistScreenwriters();
+                return network.getTarjetasGraficas();
             case 5:
-                return network.getAssemblers();
+                return network.getEnsambladores();
             default:
                 return null;
         }
     }
 
-    private void setEmployeesArrayByType(Company network, int workerType, Employee[] newEmployees) {
+    private void setDevelopersArrayByType(Company network, int workerType, Developer[] newEmployees) {
         switch (workerType) {
             case 0:
-                network.setScreenwriters(newEmployees);
+                network.setPlacaBase(newEmployees);
                 break;
             case 1:
-                network.setSetDesigners(newEmployees);
+                network.setCpus(newEmployees);
                 break;
             case 2:
-                network.setCharacterAnimators(newEmployees);
+                network.setRam(newEmployees);
                 break;
             case 3:
-                network.setVoiceActors(newEmployees);
+                network.setFuenteAlimentacion(newEmployees);
                 break;
             case 4:
-                network.setPlotTwistScreenwriters(newEmployees);
+                network.setTarjetasGraficas(newEmployees);
                 break;
         }
     }
@@ -198,8 +191,8 @@ public class Funciones {
 
     public static void calculateTotalEarnings(int company) {
         Company tv = getCompany(company);
-        float earning = (tv.getNumNormalChapters() * Global.profitComputers[company][0])
-                + (tv.getNumChaptersWithPlotTwist() * Global.profitComputers[company][1]);
+        float earning = (tv.getNumComputadorasNorm() * Global.profitComputers[company][0])
+                + (tv.getNumComputadorasGraf() * Global.profitComputers[company][1]);
         tv.setEarning(earning);
     }
 
