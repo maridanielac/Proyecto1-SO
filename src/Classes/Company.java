@@ -5,6 +5,7 @@
 package Classes;
 
 import java.util.concurrent.Semaphore;
+import javax.swing.JLabel;
 
 /**
  *
@@ -70,6 +71,8 @@ public final class Company {
     private final Developer TarjetaGrafica; 
     private final Assembler Assembler; 
     
+    private JLabel[] labels;
+    
     private int trabajadoresTotalesMax; 
     private int trabajadoresTotales; 
     private int guardarTrabajadoresTotales;
@@ -129,7 +132,34 @@ public final class Company {
     
     public void StartWorking(){
         actTotalTrabajadores(); 
+        loadWorkersValues();
+        getProductosBases().Work();
+        getCpus().Work();
+        getMemoriaRam().Work();
+        getFuenteAli().Work();
+        getTarjetaGrafica().Work();
+        getAssembler().Work();
+       
     }
+    
+    public void loadWorkersValues(){
+        
+        this.labels[0].setText(String.valueOf(getTrabajadoresTotales()));
+        this.labels[1].setText(String.valueOf( getProductosBases().getCantDeveloper()));
+        this.labels[2].setText(String.valueOf(getCpus().getCantDeveloper()));
+        this.labels[3].setText(String.valueOf(getMemoriaRam().getCantDeveloper()));
+        this.labels[4].setText(String.valueOf(getFuenteAli().getCantDeveloper()));
+        this.labels[5].setText(String.valueOf(getTarjetaGrafica().getCantDeveloper()));
+        this.labels[6].setText(String.valueOf(getAssembler().getAssemblerquantity()));
+        //this.labels[7].setText(String.valueOf(getPM().getCommitDay()));
+        this.labels[8].setText(String.valueOf(getProductosBases().getCantDeveloper()));
+        this.labels[9].setText(String.valueOf(getCpus().getCantDeveloper()));
+        this.labels[10].setText(String.valueOf(getMemoriaRam().getCantDeveloper()));
+        this.labels[11].setText(String.valueOf(getFuenteAli().getCantDeveloper()));
+        this.labels[12].setText(String.valueOf(getTarjetaGrafica().getCantDeveloper()));
+        this.labels[13].setText(String.valueOf(getAssembler().getAssemblerquantity()));
+    }
+
     
     public void actTotalTrabajadores(){
         this.trabajadoresTotales = ProductosBases.getCantDeveloper() + Cpus.getCantDeveloper() + MemoriaRam.getCantDeveloper()+FuenteAli.getCantDeveloper() + TarjetaGrafica.getCantDeveloper()+Assembler.getAssemblerquantity();    
