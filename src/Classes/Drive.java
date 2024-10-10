@@ -26,7 +26,7 @@ public class Drive {
     private int computadoras; 
     private int computadorasytgraficas; 
 
-    public Drive(int maxplacasbases, int maxcpus, int maxmemoriaram, int maxfuentealim, int maxtarjgraficas, int computadoras, int computadorasytgraficas) {
+    public Drive(int maxplacasbases, int maxcpus, int maxmemoriaram, int maxfuentealim, int maxtarjgraficas) {
         this.placasbases = 0;
         this.cpus = 0;
         this.memoriaram = 0;
