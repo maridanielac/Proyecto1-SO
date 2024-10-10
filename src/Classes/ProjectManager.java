@@ -90,15 +90,15 @@ public class ProjectManager extends Thread {
     public void obtainSalary() {
         if (isSanctioned()){
         setAccSalary(getAccSalary() + getSalary() - 100);
-        getCompany().setTotalCost(getCompany().getTotalCost()+getSalary()*24-100);
+        getCompany().setGastos(getCompany().getGastos()+getSalary()*24-100);
             setSanctions(getSanctions()+1);
         this.ProjectManagerlabels[2].setText(String.valueOf(getSanctions()));
         this.ProjectManagerlabels[4].setText(String.valueOf(getSanctions()*100));
     } else {
             setAccSalary(getAccSalary() + getSalary()*24);
-            getCompany().setTotalCost(getCompany().getTotalCost()+getSalary()*24);
+            getCompany().setGastos(getCompany().getGastos()+getSalary()*24);
         }
-    this.ProjectManagerlabels[0].setText(String.valueOf(getCompany().getTotalCost()));
+    this.ProjectManagerlabels[0].setText(String.valueOf(getCompany().getGastos()));
     }
     
     
