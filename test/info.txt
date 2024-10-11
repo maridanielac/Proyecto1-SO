@@ -1,21 +1,15 @@
-[General info]
-DayDuration=2000
-Deadline=30
-
-[Apple]
-PlacaBase=5
-CPUs=4
-RAM=3
-FuenteAlimentacion=3
-TarjetasGraficas=1
-Ensambladores=1
-MaxCapacity=17
-
-[HP]
-PlacaBase=3
-CPUs=4
-RAM=3
-FuenteAlimentacion=1
-TarjetasGraficas=1
-Ensambladores=2
-MaxCapacity=14
+Segundos en la simulación:3000
+Días antes del Deadline1:30
+PlacasBase1:4
+CPUs1:2
+Ram1:2
+FuenteAlimentacion1:3
+TarjetasGraficas1:3
+Ensambladores1:3
+Días antes del Deadline2:30
+PlacasBase2:2
+CPUs2:2
+Ram2:2
+FuenteAlimentacion2:2
+TarjetasGraficas2:
+Ensambladores2:2

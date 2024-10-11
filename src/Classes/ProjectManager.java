@@ -262,7 +262,7 @@ public class ProjectManager extends Thread {
     }
 
     /**
-     * @param 
+     * @param PMlabels
      */
     public void setProjectManagerlabels(JLabel[] PMlabels) {
         this.ProjectManagerlabels = ProjectManagerlabels;
