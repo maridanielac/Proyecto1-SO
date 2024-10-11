@@ -77,15 +77,15 @@ public final class Company {
     private int trabajadoresTotales; 
     private int guardarTrabajadoresTotales;
 
-    public Company(int numeroPlacasBases, int numerosCpus, int numeroMemoriaRam, int numeroFuenteAlimentacion, int numeroTarjetasGraficas, float Gastos, float Ingresos, float Beneficios, float computers, float computerstarjetasgraficas, int PlacasBasesSalary, int CpusSalary, int MemoriaRamSalary, int FuenteAliSalary, int TarjetasGraficasSalary, int assemblerSalary, int dayDuration, int PlacasBasesContent, int CpusContent, int MemoriaRamContent, int FuenteAliContent, int TarjetaGraficaContent, int placasbasesToWork, int cpusToWork, int memoriaramToWork, int fuentealiToWork, int tarjetagraficaToWork, int assemblerToWork, int placasbasesEnsamblar, int cpusEnsamblar, int memoriaramEnsamblar, int fuentealiEnsamblar, int tarjetagraficaEnsamblar, int assemblerEnsamblar, int compusMemoria, Semaphore mutex, int fixComitDay, int comitDay, Drive drive, int PMsalary, int directorSalary, Developer ProductosBases, Developer Cpus, Developer MemoriaRam, Developer FuenteAli, Developer TarjetaGrafica, Assembler Assembler, int trabajadoresTotalesMax, int trabajadoresTotales, int guardarTrabajadoresTotales) {
+    public Company(int numeroPlacasBases, int numerosCpus, int numeroMemoriaRam, int numeroFuenteAlimentacion, int numeroTarjetasGraficas, int numeroAssemblers, int PlacasBasesSalary, int CpusSalary, int MemoriaRamSalary, int FuenteAliSalary, int TarjetasGraficasSalary, int assemblerSalary, int dayDuration, int PlacasBasesContent, int CpusContent, int MemoriaRamContent, int FuenteAliContent, int TarjetaGraficaContent, int placasbasesToWork, int cpusToWork, int memoriaramToWork, int fuentealiToWork, int tarjetagraficaToWork, int assemblerToWork,int placasbasesEnsamblar, int cpusEnsamblar, int memoriaramEnsamblar, int fuentealiEnsamblar, int tarjetagraficaEnsamblar, int compusMemoria, int comitDay, int PMsalary, float computers, float computerstarjetasgraficas,int directorSalary, int trabajadoresTotalesMax) {
         this.numeroPlacasBases = numeroPlacasBases;
         this.numerosCpus = numerosCpus;
         this.numeroMemoriaRam = numeroMemoriaRam;
         this.numeroFuenteAlimentacion = numeroFuenteAlimentacion;
         this.numeroTarjetasGraficas = numeroTarjetasGraficas;
-        this.Gastos = Gastos;
-        this.Ingresos = Ingresos;
-        this.Beneficios = Beneficios;
+        this.Gastos = 0;
+        this.Ingresos = 0;
+        this.Beneficios = 0;
         this.computers = computers;
         this.computerstarjetasgraficas = computerstarjetasgraficas;
         this.PlacasBasesSalary = PlacasBasesSalary;

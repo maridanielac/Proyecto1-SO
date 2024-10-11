@@ -20,9 +20,12 @@ public class Ventana extends javax.swing.JFrame {
      */
     public Ventana() {
         initComponents();
-        
-        
-        
+        this.CantMemoriaRam.setValue(1); // Establece el valor inicial en 1
+        this.CantFuenteA.setValue(1); // Establece el valor inicial en 1
+        this.CantPlacasBases.setValue(1); // Establece el valor inicial en 1
+        this.CantTarjetaGrafica.setValue(1); // Establece el valor inicial en 1
+        this.CantCPUS.setValue(1); //Establece el valor inicial en 1
+                  
     }
     
     boolean iniciado=true; // (cambiar a verdadero para visualizar) Aqui tengo que poner verdadero para que se elija la cantidad de trabajadores por tipo y si se excede muestre el mensaje 
