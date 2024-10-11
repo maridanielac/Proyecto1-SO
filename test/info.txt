@@ -9,8 +9,6 @@ RAM=3
 FuenteAlimentacion=3
 TarjetasGraficas=1
 Ensambladores=1
-ProjectManager=1
-Director=1
 MaxCapacity=17
 
 [HP]
@@ -20,6 +18,4 @@ RAM=3
 FuenteAlimentacion=1
 TarjetasGraficas=1
 Ensambladores=2
-ProjectManager=1
-Director=1
 MaxCapacity=14

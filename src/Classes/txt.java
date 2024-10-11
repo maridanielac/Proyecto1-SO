@@ -152,37 +152,31 @@ public class Txt {
 
         data += "[Apple]\n";
         Company apple = app.getApple();
-        int placaBase = apple.countNonNull(apple.getPlacaBase());
-        int cpus = apple.countNonNull(apple.getCPUs());
-        int ram = apple.countNonNull(apple.getRam());
-        int fuenteAlimentacion = apple.countNonNull(apple.getFuenteAlimentacion());
-        int tarjetasGraficas = apple.countNonNull(apple.getTarjetasGraficas());
-        int ensambladores = apple.countNonNull(apple.getEnsambladores());
-        int projectManager = apple.getProjectManager();
-        int director = apple.getDirector();
-        int maxCapacity = apple.getMaxEmployeesQuantity();
+        int placaBase = apple.getNumeroPlacasBases();
+        int cpus = apple.getNumerosCpus();
+        int ram = apple.getNumeroMemoriaRam();
+        int fuenteAlimentacion = apple.getNumeroFuenteAlimentacion();
+        int tarjetasGraficas = apple.getNumeroTarjetasGraficas();
+        int ensambladores = apple.getNumeroAssemblers();
+        int maxCapacity = apple.getTrabajadoresTotalesMax();
 
         data += "PlacaBase=" + placaBase + "\n" + "CPUs=" + cpus + "\n" + "RAM="
                 + ram + "\n" + "FuenteAlimentacion=" + fuenteAlimentacion + "\n" + "TarjetasGraficas="
-                + tarjetasGraficas + "\n" + "Ensambladores=" + ensambladores + "\n" + "ProjectManager=" + projectManager
-                + "\n" + "Director=" + director + "\n" + "MaxCapacity=" + maxCapacity + "\n\n";
+                + tarjetasGraficas + "\n" + "Ensambladores=" + ensambladores + "\n" +"MaxCapacity=" + maxCapacity + "\n\n";
 
         data += "[HP]\n";
         Company hp = app.getHP();
-        placaBase = hp.countNonNull(hp.getPlacaBase());
-        cpus = hp.countNonNull(hp.getCPUs());
-        ram = hp.countNonNull(hp.getRam());
-        fuenteAlimentacion = hp.countNonNull(hp.getFuenteAlimentacion());
-        tarjetasGraficas = hp.countNonNull(hp.getTarjetasGraficas());
-        ensambladores = hp.countNonNull(hp.getEnsambladores());
-        projectManager = hp.getProjectManager();
-        director = hp.getDirector();
-        maxCapacity = hp.getMaxEmployeesQuantity();
+        placaBase = hp.getNumeroPlacasBases();
+        cpus = hp.getNumerosCpus();
+        ram = hp.getNumeroMemoriaRam();
+        fuenteAlimentacion = hp.getNumeroFuenteAlimentacion();
+        tarjetasGraficas = hp.getNumeroTarjetasGraficas();
+        ensambladores = hp.getNumeroAssemblers();
+        maxCapacity = hp.getTrabajadoresTotalesMax();
 
         data += "PlacaBase=" + placaBase + "\n" + "CPUs=" + cpus + "\n" + "RAM="
                 + ram + "\n" + "FuenteAlimentacion=" + fuenteAlimentacion + "\n" + "TarjetasGraficas="
-                + tarjetasGraficas + "\n" + "Ensambladores=" + ensambladores + "\n" + "ProjectManager=" + projectManager
-                + "\n" + "Director=" + director + "\n" + "MaxCapacity=" + maxCapacity + "\n\n";
+                + tarjetasGraficas + "\n" + "Ensambladores=" + ensambladores + "\n" + "ProjectManager=" + "MaxCapacity=" + maxCapacity + "\n\n";
 
         return data;
     }

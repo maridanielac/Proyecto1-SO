@@ -7,7 +7,7 @@ package Main;
 import java.io.File;
 import Classes.Txt;
 //import GUI.Classes.ChartManager;
-import Classes.Funciones;
+
 import Classes.Company;
 
 /**

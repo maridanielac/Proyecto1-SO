@@ -1,13 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Classes;
 
+import Classes.Company;
+import Classes.Drive;
 import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 /**
  *
  * @author Maria Daniela
@@ -26,7 +28,7 @@ public class Developer extends Thread {
     private int content;
     private int CantDeveloper;
 
-    public Developer(int rol, int dayDuration, int payPerHour, Semaphore mutex, Drive drive) {
+    public Developer(int rol, int dayDuration, int payPerHour, int dayDuration1, Semaphore mutex, int placasbasesToWork, int placasBasesContent, Company aThis) {
         this.rol = rol;
         this.dayDuration = dayDuration;
         this.payPerHour = payPerHour;
